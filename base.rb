@@ -24,12 +24,14 @@ plugin 'deployment_recipiez', :git => 'git://github.com/pyrat/deployment_recipie
 
 # 
 gem 'RedCloth', :lib => 'redcloth'
-gem 'mislav-will-paginate'
+gem 'mislav-will_paginate', :source => "http://gems.github.com"
 gem 'haml'
-gem 'thoughtbot-shoulda'
-gem 'rubyist-fakeweb'
-gem 'thoughtbot-paperclip'
-gem 'thoughtbot-clearance'
+gem 'rubyist-fakeweb', :source => "http://gems.github.com"
+gem 'thoughtbot-shoulda', :source => "http://gems.github.com"
+gem 'thoughtbot-paperclip', :source => "http://gems.github.com"
+gem 'thoughtbot-clearance', :source => "http://gems.github.com"
+gem 'thoughtbot-factory_girl', :source => "http://gems.github.com"
+gem 'mocha'
 # 
 rake("gems:install")
 rake("gems:unpack")
@@ -49,6 +51,5 @@ initializer 'time_formats.rb',
   ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.update(k => v)
   end
   }
-# 
 # 
 git :add => ".", :commit => "-m 'initial commit'"
