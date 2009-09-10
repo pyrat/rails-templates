@@ -1,12 +1,12 @@
 git :init
 
 # # Delete unnecessary files
- run "rm public/index.html"
- run "rm public/favicon.ico"
- run "rm public/rails.png"
- run "echo 'TODO add readme content' > README"
- run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
- run "cp config/database.yml config/database.example"
+run "rm public/index.html"
+run "rm public/favicon.ico"
+run "rm public/rails.png"
+run "echo 'TODO add readme content' > README"
+run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
+run "cp config/database.yml config/database.example"
 # 
 # # Make .gitignore file
 file ".gitignore", <<-END
@@ -14,20 +14,25 @@ log/*.log
 tmp/**/*
 .DS_Store
 config/database.yml
+public/system/*
 END
 # 
 
-
 plugin 'exception_notifier', :git => 'git://github.com/rails/exception_notification.git'
 plugin 'role_requirement', :git => 'git://github.com/timcharper/role_requirement.git'
+plugin 'deployment_recipiez', :git => 'git://github.com/pyrat/deployment_recipiez.git'
 
 # 
 gem 'RedCloth', :lib => 'redcloth'
 gem 'mislav-will-paginate'
 gem 'haml'
 gem 'thoughtbot-shoulda'
+gem 'rubyist-fakeweb'
+gem 'thoughtbot-paperclip'
+gem 'thoughtbot-clearance'
 # 
 rake("gems:install")
+rake("gems:unpack")
 # 
 
 # 
